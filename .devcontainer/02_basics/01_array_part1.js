@@ -7,7 +7,7 @@
  console.log(cricketers[2])
  console.log(cricketers[3])
  console.log(cricketers[4])
-// //accessing should be done using +ve integers starting from 0. actual values should be used to access elements.
+ //accessing should be done using +ve integers starting from 0. actual values should be used to access elements.
  console.log(`type of array criketers is ${typeof cricketers}`)
  let numbers=new Array(33,44,55,66,77)
  console.log(`type of array numbers is ${typeof numbers}`)
