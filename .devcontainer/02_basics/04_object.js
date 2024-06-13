@@ -1,3 +1,4 @@
+/*
 //creation of singleton and non-singleton object.
 //singleton object   =>     created using new keyword.
 //let singletonObj=new Object()
@@ -89,7 +90,41 @@ console.log(Object.values(tinderUser))
 //entries
 console.log(Object.entries(tinderUser))
 console.log(tinderUser.hasOwnProperty("Email"))   //determines that whether mentioned property is there in specified object or not.
+*/
 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+//destructing of objects in js
+
+let course={
+    name:"Master Js",
+    price:"999",
+    courseInstructor:"Krish",
+    durationOfCourse:"35-40 days"
+}
+//console.log(course.durationOfCourse)         //again and again we have to use this syntax making our work lengthy.
+//so we destructure objects using which our code becomes more readable.
+//syntax const/let {key which we want to use : name we want to use} =  name of object
+const {courseInstructor:Instructor}=course   //now we cannot use courseInstructor;we can only use Instructor to reference Krish.
+console.log(Instructor)
+const { durationOfCourse:time }=course
+console.log(time)
+/*
+api format
+format 1
+{
+"name":"krish",
+"courseName":"js in hindi",
+"price":"free"
+}
+format 2
+[
+   {},
+   {}.
+   {}
+]
+*/
 
 
 
