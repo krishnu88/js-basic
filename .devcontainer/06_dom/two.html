@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | codeBashers</title>
+</head>
+<body style="background-color:#212121; color: #FFF;">
+    <div class="parent">  
+        <!--first break is counted in child node list. remaining line breaks are not counted in child node list -->
+        <div class="day">Monday</div> 
+        <div class="day">Tuesday</div> 
+        <div class="day">Wednesday</div>
+        <div class="day">Thrusday</div> 
+        <div class="day">Friday</div> 
+        <div class="day">Saturday</div> 
+        <div class="day">Sunday</div>
+    </div>
+</body >
+<script>
+let parent=document.querySelector(".parent")
+// console.log(parent.children)
+// console.log(parent.children[0])
+// console.log(parent.children[3])
+//applying loop on html collection(parent)
+// console.log(parent.children[0].innerHTML)
+// console.log(parent.children[1].innerHTML)
+// console.log(parent.children[2].innerHTML)
+//html collection has array like properties but is not an array.specific array loops cannot be applied on it.however,normal for loop can be applied on array.
+//  for (let i = 0; i < parent.children.length; i++) {
+//      console.log(parent.children[i].innerHTML);   //parent is only one.parent is furthur is having 7 children ehich can be accessed using[].
+// }
+//for selecting all children of a parent we need loop. [] applies properties only to a single child.
+// parent.children[0].style.backgroundColor="orange"
+// parent.children[1].style.backgroundColor="white"
+// parent.children[2].style.backgroundColor="green"
+// parent.children[1].style.color="green"
+// for (let i = 0; i < parent.children.length; i++) {
+//   console.log (parent.children[i].innerHTML)//.backgroundColor="orange"
+    
+// }
+parent.children[0].style.backgroundColor="blue"
+ parent.children[0].style.font="15px"
+ parent.children[0].style.borderRadius="15px"
+ parent.children[0].style.padding="15px"
+
+// console.log(parent.firstElementChild) // => accesses first child of parent
+// console.log(parent.lastElementChild)  // => accessses last child of parent
+// let dayOne=parent.querySelector(".day")  //stores first child of parent (monday)inside variable dayOne.
+// //using query selector involves traversing our whole tree;which is expensive.so we can use more optimise way.
+// console.log(dayOne.parentElement)
+// console.log(dayOne.nextElementSibling)   // =>gives next successive child of the same parent. tuesday
+// console.log(dayOne.nextElementSibling.nextElementSibling)   //wednesday
+//child nodes =>  gives list of all child elements of parent.
+let nodeList=parent.childNodes
+console.log(nodeList)
+//web forms a very complex tree structure behind the scenes of a page.so we need to optimise js more and more in order to get efficient results.
+
+</script>
+</html>
