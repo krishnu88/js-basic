@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeBashers</title>
+</head>
+<body style="background-color: #212121;color:#FFF">
+    <!-- we can manually create elements in the body.however in this,we will see how to create elements using javascript-->
+</body>
+<script>
+    const div=document.createElement("div")
+    console.log(div)
+    div.setAttribute("class","main")  
+    div.className="main-parent"
+    div.id=Math.round(Math.random()*10 + 1)
+    div.style.backgroundColor="green"
+    div.setAttribute("title","CodeBashers")
+    div.style.padding="15px"
+    div.style.borderRadius="15px"
+    //div.innerText="creation of elements of web page using JS"
+    //div.innerText="hello"
+    //using createTextNode
+    let text=document.createTextNode("Creation of elements using JS")
+    div.appendChild(text)
+
+//now everything we have craeted is in memory.its is not yet bought onto the web page.to laod it to the web page,we use appendChild().
+document.body.appendChild(div)
+
+</script>
+</html>
