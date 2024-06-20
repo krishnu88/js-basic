@@ -33,4 +33,29 @@ button.addEventListener("click", function(e){
 
 })
 });
+let buttons=document.querySelectorAll(".button")
+let body=document.querySelector("body")
+buttons.forEach( (button) =>
+{
+      button.addEventListener( "click",function(e){
+        switch (e.target.id)
+        {
+          case "grey":
+               body.style.backgroundColor="grey"  
+               break; 
+          case "blue":
+               body.style.backgroundColor="blue"  
+               break; 
+          case "cyan":
+               body.style.backgroundColor="cyan"  
+               break; 
+          case "magenta":
+               body.style.backgroundColor="magenta"  
+               break; 
+          case "yellow":
+               body.style.backgroundColor="yellow"  
+               break;  
+        }
+      })
+});
 ```
