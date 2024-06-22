@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #414141;"
+    <div>
+   <ul id="images"> 
+        <li><img width="200px" id="work" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+        <li><img width="200px" id="animal" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+        <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+        <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+        <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+        <li><a style="color: black;" id="link" href="https://google.com" id="google">Google</a></li>
+    </ul> 
+    </div>
+    <!-- <div><button>Click Here</button></div> -->
+    <button id="myButton">Click Me!</button>
+</body>
+<script>
+    //events in javascript are the list of functionalities that occur in web.these include clicking,hovering etc.certain tasks are performed only when these events are peformed. 
+    // document.getElementById("owl").onclick=function (){ alert("clicked on owl")}
+    //this approach has scalabilty problem. this approach is also older one.so we use a newer approach.
+    //addEventListener accepts two parameters : an event and a function or task that has to be performed when the specified action or event is performed.
+    // document.getElementById("owl").addEventListener("click",function (e){
+    // console.log(e)    //when we click a list of events and various other properties is displayed.
+    // alert("OWL CLICKED AGAIN!")
+    // })
+//event propagation  =>  it refers to how events are propagated in dom. When an event is attached to an element of dom tree,it does not stop there.it travels down to the root element of the dom tree.(and sometimes even backwards.)
+//there are two phases of event propagation = > capturing and bubbling
+//event bubbling : in this , the events movr from target element to its parent element that is from inside to outside.
+// document.getElementById("images").addEventListener( "click" , function(){
+//     console.log("ul is clicked.this message is printed beause you are clicking an element of li.")
+// })
+// document.querySelector("#owl").addEventListener("click",function (event){
+//     console.log("you clicked on owl.this message is printed because you clicked on owl.")
+// event.stopPropagation();
+//     //on cicking on owl we observe that along with owl message =,the ul message is also printed.this is beacuse of eveny bubbling.event travels from down to upp so these messages are executed in this order.
+//     //stop propagation is used to stop the effects of event capturing or event bubbling.
+// })
+// document.querySelector("#work").addEventListener("click",function(){ console.log("you clicked on work.this message is printed because you clicked on work")})
+// //by passing true as parameter,we make the capturing event behaviour true ; in which the events travel from upp to down that is from outside to inside. 
+// //by default ; event capturing is set to false that is event bubbling takes place.we can set event capturing by making our third parameter true.
+//summary => event capturing : parent to child  (to enable it we have to set parameter to true)
+// event bubbling : child to parent
+//made a background color changer.this changes the color of the background when button is clicked.
+// let min=10,max=255;
+// let random=Math.round(min+(max-min)*Math.random())
+// console.log(random)
+// document.querySelector("button").addEventListener("click",function (e){ 
+//     const rndCol = `rgb(${random-100} ${random-175} ${random+100})`;
+//   document.body.style.backgroundColor = rndCol;
+// })
+const button = document.getElementById('myButton');
+
+// Add event listener for 'click' event
+//creating timestamp  =>  it helps in telling at which time and which date the corresponding event is performed.
+button.addEventListener('click', function() {
+    const timestamp = new Date().toLocaleString();
+    console.log('Button clicked at:', timestamp);
+});
+//defaultPrevented() => it prevents the default fuction of browser to submit data to a server.
+// document.getElementById("link").addEventListener("Click" , function(event) {
+// console.log("you clicked on google")
+// },false) //event capturing is false ; so event bubbling takes place.
+/*
+ul
+ \
+  \
+   li              image is a child of ul,ul is furthur a child of ul.so ul is the main parent.parentNode will select the immediate parent of child.
+    \
+     \
+      image 
+*/
+document.querySelector("#images").addEventListener("click",function (event) {
+    //if we do not select parent node,then only our image will be selected,the bulletins will not be selected.selecting parentNode will select the whole parent.  
+// console.log(event.target.parentNode.parentNode) //this will select the ul.
+console.log(event)
+// console.log(event.parentNode) //undefined.
+// console.log(event.target.parentNode)  //target is image  and parent of image is li. so this gives li as output.
+console.log(event.target.tagName)
+if(event.target.tagName!=="LI"){
+    let removeIt=event.target.parentNode
+removeIt.remove() //clicking on image will work properly.however,when we click on bullet,all images get removed. since parent of li is ul.
+
+}
+
+})
+
+
+
+
+</script>
+</html>
