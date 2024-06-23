@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASYNC JS</title>
+</head>
+<body>
+    <h1>CODE KE BASICS</h1>
+    <button id="stop">STOP</button>
+</body>
+<script>
+//setTimeout Fucntion =>  it is function that also invokes an API.
+// it is used to execute code only once after certain amount of time.
+//handler,callback function all are same. it takes handler and time(in milliseconds) as argument.
+setTimeout(function (){
+//console.log("KRISH")
+},2000)
+//setInterval =>  repeates the code after certain time interval.
+// setInterval(function (){
+//     console.log("KRISH")
+// },2000)
+//the popups that come in website or the ads are displayed using setTimeout().
+let changeName=function(){
+    document.querySelector("h1").innerHTML="basics with advance"
+}
+//only pass reference of function,do not execute it in setTimeout().
+let changeUsingSt=setInterval(changeName,2000)
+//now we can stop setTimeout using clearTimeout().
+
+
+    document.querySelector("#stop").addEventListener("click",function() {
+            clearTimeout(changeUsingSt)    //we have to pass reference of the setTimeout function which we want to clear.
+            console.log("STOPPED!")     //now if we click our button within 2 seconds,then setTimeout function will not be executed otherwise it will be executed.
+    })
+</script>
+</html>

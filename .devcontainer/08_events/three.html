@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASYNC JS</title>
+</head>
+<body>
+    <h1>CHAI AUR JAVASCRIPT</h1>
+    <button id="start">START</button>
+    <button id="stop">STOP</button>
+</body>
+<script>
+   let printMe=function (){
+    console.log("Krish",Date.now())
+   }
+   let setme; //declare setMe outside as declaring it inside {} causes accessing issues due to local scope within {}. reassign it inside {} ; dont declare it.
+   document.querySelector("#start").addEventListener("click",function (){
+   setMe=setInterval(printMe,1000)
+   })
+document.querySelector("#stop").addEventListener("click",function(){
+clearInterval(setMe)
+console.log("STOPPED DISPLAYING MESSAGE!")
+})
+//clearInterval(stopMe)     //anything does not gets executed since we applied both setInterval and clearInterval function.
+</script>
+</html>
